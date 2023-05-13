@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import Potato from './Potato' //./ App, Potato는 같은 곳에 위치하니깐 이렇게 표현함
+
+// 같은 파일에 작성해서 사용해도 됨.
+function Food(props) { // 데이터 명을 {fav, image} 이렇게 쓸 수도 있음
+  console.log(props);
+  return <h1>l like {props.fav} {props.image}</h1> //여기도 {fav} 이런 식으로 바꿔준다.
+}
+
+const FoodLIke = [
+{
+  fav: 'Kimchi',
+  image:'이미지 주소 입력'
+},
+{
+  fav: 'Ramen',
+  
+  image:'이미지 주소 입력'
+}];
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>안녕하세요</h1>
+      <Potato/>
+      {FoodLIke.map(data => (<Food fav ={data.fav} image = {data.image}/>))}
     </div>
-  );
+  )
+      
+
 }
 
 export default App;
