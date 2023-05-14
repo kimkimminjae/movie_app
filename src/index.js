@@ -1,8 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 
+import Prac from './Practice';
+import App1 from './App1';
 import App from './App';
-
+import Movie from './movie';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
