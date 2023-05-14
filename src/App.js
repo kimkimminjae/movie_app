@@ -21,8 +21,6 @@ const FoodLIke = [
 function App() {
   return (
     <div>
-      <h1>안녕하세요</h1>
-      <Potato/>
       {FoodLIke.map(data => (<Food fav ={data.fav} image = {data.image}/>))}
     </div>
   )
