@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 
 import Movie from "./movie";
+import './App.css'
 
 
 /*
@@ -67,19 +68,27 @@ class App extends React.Component {
         render() {
             const {isLoading,movies} = this.state  // state가 {}구조니깐 {}쓰는 것 같다. https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
             return (
-            <div> 
-                {isLoading ? 'Loading...' : movies.map((movie) =>{
-                    console.log(movie); 
-                    return ( //컴포넌트 실행할 때 데이터 전달은 ,없이 띄어쓰기로 한다..
-                    <Movie
-                    key={movie.id} //컴포넌트를 return할 때 key를 입력하지만 key는 props로 받는 데이터는 아니다 movie 컴포넌트 설정 가서 props로 key를 넣으면 오류가 뜬다.
-                    id={movie.id}
-                    year={movie.year}
-                    title={movie.title}
-                    summary={movie.summary}
-                    poster={movie.medium_cover_image}/>)
-                })}
-            </div> //'we are ready를 변경한다'
+            <section class='container'> 
+                {isLoading ? (
+                                <div class="loader">
+                                    <span class="loader_text">'Loading...'</span>
+                                </div>
+                            ) : (
+                                <div class='movie'>
+                                    {movies.map(movie =>(
+                                    //컴포넌트 실행할 때 데이터 전달은 ,없이 띄어쓰기로 한다..
+                                    <Movie
+                                    key={movie.id} //컴포넌트를 return할 때 key를 입력하지만 key는 props로 받는 데이터는 아니다 movie 컴포넌트 설정 가서 props로 key를 넣으면 오류가 뜬다.
+                                    id={movie.id}
+                                    year={movie.year}
+                                    title={movie.title}
+                                    summary={movie.summary}
+                                    poster={movie.medium_cover_image}
+                                    />
+                                    ))}
+                                </div>
+                )}
+            </section> //'we are ready를 변경한다'
             )
             }
     }
